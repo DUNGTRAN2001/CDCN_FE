@@ -1,0 +1,55 @@
+.more-product-container {
+    font-family: 'Courier New', Courier, monospace;
+    background: #f5f5f5;
+    width: 100%;
+    .more-product-body {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 20px 100px;
+        // margin-bottom: 30px;
+        gap: 15px;
+        .section-customize {
+            position: relative;
+            width: 320px;
+            height: 300px;
+            margin-bottom: 20px;
+            .bg-image {
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                cursor: pointer;
+                height: 300px;
+                &.bg-translucent {
+                    opacity: 0.5;
+                }
+            }
+            .content-bg {
+                display: flex;
+                justify-content: space-around;
+                font-weight: 600;
+                .title-image {
+                    cursor: pointer;
+                    text-transform: uppercase;
+                    &:hover {
+                        color: #49bce2
+                    }
+                    &.title-out-of-stock {
+                        color: red;
+                        text-decoration: line-through;
+                    }
+                }
+            }
+        }
+    }
+    .see-more-product {
+        text-align: center;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 600;
+        color: rgb(115, 8, 94);
+        &:hover {
+            color: rgb(230, 14, 186);
+        }
+    }
+}

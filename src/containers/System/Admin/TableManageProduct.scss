@@ -1,0 +1,37 @@
+#tableManageProduct {
+    font-family: 'Courier New', Courier, monospace;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#tableManageProduct td,
+#tableManageProduct th {
+    border: 1px solid #ddd;
+    padding: 4px;
+    img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+#tableManageProduct tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#tableManageProduct tr:hover {
+    background-color: #ddd;
+}
+
+#tableManageProduct th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+}

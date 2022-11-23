@@ -1,0 +1,290 @@
+    .detail-container {
+        padding: 30px 120px;
+        background: #f5f5f5;
+        font-family: 'Courier New', Courier, monospace;
+        .prodcut-detail-container {
+            width: 100%;
+            display: flex;
+            gap: 50px;
+            .detail-product-image {
+                width: 45%;
+                height: 500px;
+                padding: 20px;
+                .main-image {
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-color: #eee;
+                    width: 100%;
+                    height: 350px;
+                }
+            }
+            .detail-product-info {
+                width: 55%;
+                height: 500px;
+                line-height: 50px;
+                .product-name {
+                    font-size: 28px;
+                    font-weight: 600;
+                    color: rgb(115, 8, 94);
+                    text-transform: uppercase;
+                }
+                .product-parameter {
+                    display: flex;
+                    gap: 15px;
+                    font-size: 18px;
+                    .rate {
+                        color: orange;
+                        border-right: 1px solid rgb(190, 188, 188);
+                        padding-right: 10px;
+                        span {
+                            text-decoration: underline;
+                        }
+                    }
+                    .review {
+                        border-right: 1px solid rgb(190, 188, 188);
+                        padding-right: 10px;
+                    }
+                }
+                .product-price {
+                    font-size: 20px;
+                    .price {
+                        font-size: 32px;
+                        color: rgb(115, 8, 94);
+                        font-weight: 600;
+                    }
+                }
+                .transport {
+                    font-size: 16px;
+                    span {
+                        color: rgb(190, 188, 188);
+                        margin-right: 30px;
+                    }
+                    i {
+                        color: rgb(6, 117, 117);
+                    }
+                    .free-ship {
+                        color: black;
+                    }
+                }
+                .deal {
+                    font-size: 16px;
+                    span {
+                        color: rgb(190, 188, 188);
+                        margin-right: 30px;
+                    }
+                    .hot-deal {
+                        color: rgb(115, 8, 94);
+                        background: rgb(190, 188, 188);
+                        padding: 5px;
+                    }
+                }
+                .size-number {
+                    font-size: 16px;
+                    display: flex;
+                    align-items: center;
+                    .number {
+                        .title-number {
+                            color: rgb(190, 188, 188);
+                            margin-right: 30px;
+                        }
+                        .minus {
+                            background: rgb(239, 239, 239);
+                            padding: 10px;
+                            cursor: pointer;
+                        }
+                        .plus {
+                            background: rgb(239, 239, 239);
+                            padding: 10px;
+                            margin-right: 30px;
+                            cursor: pointer;
+                        }
+                        input {
+                            width: 40px;
+                            height: 40px;
+                            text-align: center;
+                        }
+                    }
+                    .product-size {
+                        span {
+                            color: rgb(190, 188, 188);
+                            margin-right: 30px;
+                        }
+                        .size {
+                            width: 40px;
+                            height: 40px;
+                            text-align: center;
+                            margin-right: 30px;
+                        }
+                    }
+                    .product-color {
+                        span {
+                            color: rgb(190, 188, 188);
+                            margin-right: 30px;
+                        }
+                        .color {
+                            width: 80px;
+                            height: 40px
+                        }
+                    }
+                }
+                .product-avalaible {
+                    font-size: 16px;
+                    color: rgb(115, 8, 94);
+                }
+                .add-cart-or-buy {
+                    display: flex;
+                    font-size: 24px;
+                    margin-top: 40px;
+                    .add-cart {
+                        border: 1px solid rgb(115, 8, 94);
+                        background: rgb(237, 185, 226);
+                        color: rgb(115, 8, 94);
+                        border-radius: 4px;
+                        margin-right: 30px;
+                        cursor: pointer;
+                        &:hover {
+                            background: rgb(244, 126, 218);
+                        }
+                    }
+                    .buy-now {
+                        background: rgb(115, 8, 94);
+                        color: white;
+                        border-radius: 4px;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        .description-container {
+            margin-top: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            .description-content {
+                .title-description {
+                    font-size: 25px;
+                    color: rgb(115, 8, 94);
+                }
+            }
+        }
+        .similar-product-container {
+            width: 100%;
+            height: 300px;
+            margin-top: 30px;
+            margin-bottom: 100px;
+            span {
+                font-size: 25px;
+                color: rgb(115, 8, 94);
+                font-weight: 600;
+            }
+            .section-body {
+                .section-customize {
+                    position: relative;
+                    .bg-image {
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        background-color: #eee;
+                        width: 300px;
+                        height: 280px;
+                        cursor: pointer;
+                    }
+                    .content-bg {
+                        display: flex;
+                        justify-content: space-around;
+                        font-weight: 600;
+                        .title-image {
+                            cursor: pointer;
+                            text-transform: uppercase;
+                            &:hover {
+                                color: #49bce2
+                            }
+                        }
+                    }
+                }
+            }
+            .slick-disabled {
+                display: none !important;
+            }
+        }
+        .section-body-detail {
+            //reset slick slider css
+            .slick-prev {
+                left: 0px !important;
+                z-index: 100;
+                height: 35px !important;
+                width: 35px !important;
+                border: 2px solid #d7d7d7 !important;
+                background: #fff !important;
+                &:hover {
+                    background: #d7d7d7 !important;
+                }
+            }
+            .slick-prev:before {
+                // content: "\f060" !important;
+                font-family: FontAwesome !important;
+                color: red !important;
+            }
+            .slick-next {
+                right: 0px !important;
+                top: 50% !important;
+                height: 35px !important;
+                width: 35px !important;
+                border: 2px solid #d7d7d7 !important;
+                background: #fff !important;
+                &:hover {
+                    background: #d7d7d7 !important;
+                }
+            }
+            .slick-next:before {
+                // content: "\e258" !important;
+                font-family: FontAwesome !important;
+                color: red !important;
+            }
+            .slick-disabled {
+                display: none !important;
+            }
+            .section-customize {
+                left: 18px;
+                position: relative;
+                .bg-image {
+                    // border: 1px solid red;
+                    margin-top: 10px;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                    width: 100px;
+                    height: 70px;
+                    cursor: pointer;
+                    &.active {
+                        border: 2px solid rgb(115, 8, 94);
+                    }
+                }
+            }
+            .share-product {
+                margin-top: 10px;
+                font-size: 30px;
+                .share-title {
+                    font-size: 22px;
+                    font-weight: 600;
+                }
+                i {
+                    margin-left: 10px;
+                    cursor: pointer;
+                    &.i1 {
+                        color: rgb(16, 16, 243);
+                    }
+                    &.i2 {
+                        color: rgb(37, 29, 74);
+                    }
+                    &.i3 {
+                        color: rgb(239, 11, 194);
+                    }
+                    &.i4 {
+                        color: rgb(15, 158, 219);
+                    }
+                }
+            }
+        }
+    }

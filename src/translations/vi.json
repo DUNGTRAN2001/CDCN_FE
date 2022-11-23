@@ -1,0 +1,54 @@
+{
+    "home-header": {
+        "time-gold": "Giờ vàng",
+        "time-frame-sale": "Khung giờ săn sale",
+        "transport": "Vận chuyển",
+        "free-transport": "Miễn phí vận chuyển",
+        "discount": "Giảm giá",
+        "discount-code": "Mã giảm giá ưu đãi",
+        "service": "Dịch vụ",
+        "good-service": "Cung cấp dịch vụ tốt",
+        "support": "Hỗ trợ",
+        "login": "Đăng nhập",
+        "welcome": "Xin chào"
+
+    },
+    "banner": {
+        "shopping-bg": "NỀN TẢNG MUA SẮM",
+        "online-shopping": "MUA SẮM TRỰC TUYẾN KHÔNG LO VỀ GIÁ",
+        "child1": "Quần dài",
+        "child2": "Quần sọt",
+        "child3": "Áo sơ mi",
+        "child4": "Áo thun",
+        "child5": "Váy",
+        "child6": "Phụ kiện"
+    },
+    "menu": {
+        "admin": {
+            "manage-user": "Người dùng",
+            "crud": "CRUD user",
+            "crud-redux": "CRUD redux",
+            "admin-product": "Sản phẩm",
+            "manage-product": "Quản lý sản phẩm",
+            "admin-cart": "Giỏ hàng",
+            "manage-cart": "Quản lý giỏ hàng",
+            "manage-category": "Quản lý thư mục"
+        }
+    },
+    "manage-user": {
+        "add": "Thêm mới người dùng",
+        "email": "Email",
+        "password": "Mật khẩu",
+        "first-name": "Tên",
+        "last-name": "Họ",
+        "phone-number": "Số điện thoại",
+        "address": "Địa chỉ",
+        "gender": "Giới tính",
+        "position": "Chức danh",
+        "role-id": "Vai trò",
+        "image": "Ảnh",
+        "save": "Lưu người dùng",
+        "edit": "Lưu thay đổi"
+
+    }
+}

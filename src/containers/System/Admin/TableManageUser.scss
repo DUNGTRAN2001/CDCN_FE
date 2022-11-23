@@ -1,0 +1,28 @@
+#tableManageUser {
+    font-family: 'Courier New', Courier, monospace;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+#tableManageUser td,
+#tableManageUser th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#tableManageUser tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#tableManageUser tr:hover {
+    background-color: #ddd;
+}
+
+#tableManageUser th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+}

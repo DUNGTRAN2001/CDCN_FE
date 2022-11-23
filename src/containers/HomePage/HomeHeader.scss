@@ -1,0 +1,198 @@
+    .home-header-container {
+        height: 60px;
+        width: 100%;
+        padding: 0 40px;
+        font-family: 'Courier New', Courier, monospace;
+        position: sticky;
+        top: 0;
+        background-color: white;
+        z-index: 1000;
+        .home-header-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            .left-content {
+                width: 20%;
+                display: flex;
+                align-items: center;
+                .header-logo {
+                    height: 100%;
+                    width: 100%;
+                    cursor: pointer;
+                    transform: scale(0.7, 1);
+                    margin-left: -45px;
+                }
+                i {
+                    font-size: 25px;
+                    color: grey;
+                    cursor: pointer;
+                }
+            }
+            .center-content {
+                width: 55%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .child-content {
+                    .subs-title {
+                        font-weight: 400;
+                        font-size: 12px;
+                        color: gray;
+                    }
+                }
+            }
+            .right-content {
+                width: 25%;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                .support {
+                    padding-right: 20px;
+                    display: flex;
+                    align-items: center;
+                    i {
+                        font-size: 20px;
+                        margin-right: 5px;
+                        cursor: pointer;
+                    }
+                }
+                .login {
+                    cursor: pointer;
+                    margin-right: 20px
+                }
+                .avatar-img {
+                    margin-right: 20px;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    background-size: cover;
+                    position: relative;
+                    cursor: pointer;
+                }
+                .list {
+                    width: 100%;
+                    background-color: white;
+                    list-style: none;
+                    line-height: 25px;
+                    padding: 0;
+                    width: 220px;
+                    position: absolute;
+                    top: 110%;
+                    left: -170%;
+                    li {
+                        padding: 10px;
+                        cursor: pointer;
+                        &:hover {
+                            background-color: rgb(115, 8, 94);
+                        }
+                    }
+                    &.list-show {
+                        display: block;
+                    }
+                    &.list-hiden {
+                        display: none;
+                    }
+                }
+                .language-vi {
+                    cursor: pointer;
+                    &.active {
+                        color: orange;
+                    }
+                }
+                .language-en {
+                    margin: 0 10px;
+                    cursor: pointer;
+                    &.active {
+                        color: blue;
+                    }
+                }
+            }
+        }
+    }
+    
+    .home-header-banner {
+        background: url('../../assets/abc.jpg') center no-repeat;
+        height: 630px;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        font-family: 'Courier New', Courier, monospace;
+        .content-up {
+            height: 75%;
+            padding-top: 40px;
+            .title1 {
+                text-align: center;
+                color: rgb(100, 8, 81);
+                font-size: 30px;
+                font-weight: 600;
+                text-shadow: 1px 1px 1px #333;
+                margin-bottom: 10px;
+                margin-top: 30px;
+            }
+            .title2 {
+                text-align: center;
+                color: rgb(100, 8, 81);
+                font-size: 30px;
+                font-weight: 900;
+                text-shadow: 1px 1px 1px #333;
+            }
+            .search {
+                width: fit-content;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0 auto;
+                padding: 10px;
+                border-radius: 25px;
+                background: #9b9b99;
+                margin-top: 15px;
+                i {
+                    margin: 0 5px;
+                }
+                input {
+                    height: 30px;
+                    width: 360px;
+                    background: transparent;
+                    border: none;
+                    outline: none;
+                }
+            }
+        }
+        .content-down {
+            height: 25%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            background-image: linear-gradient(rgba(53, 53, 53, 0.1), rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 1));
+            padding-bottom: 20px;
+            .option {
+                text-align: center;
+                display: flex;
+                gap: 50px;
+                justify-content: center;
+                .option-child {
+                    width: 125px;
+                    .icon-child {
+                        background: white;
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        padding: 10px;
+                        margin: 0 auto;
+                        i {
+                            color: rgb(100, 8, 81);
+                            font-size: 30px;
+                        }
+                    }
+                    .text-child {
+                        font-size: 17px;
+                        font-weight: 600;
+                        cursor: pointer;
+                        &:hover {
+                            color: rgb(100, 8, 81);
+                        }
+                    }
+                }
+            }
+        }
+    }

@@ -6,6 +6,8 @@ import { push } from "connected-react-router";
 import * as actions from "../../store/actions";
 import "./Login.scss";
 import { handleLoginApi } from "../../services/userService";
+import { withRouter } from "react-router";
+
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -34,9 +36,10 @@ class Login extends Component {
     try {
       // gọi được thành công nhưng bị lỗi khác
       let data = await handleLoginApi(this.state.username, this.state.password);
+
       if (data && data.isSuccess !== true) {
         this.setState({
-          errMessage: "lỗi",
+          errMessage: data.errMessage,
         });
       }
       if (data && data.isSuccess === true) {
@@ -58,8 +61,18 @@ class Login extends Component {
   };
   handleShowHidePassWord = () => {
     this.setState({
-      isShowPassWord: !this.state.isShowPassWord,
+      showPassWord: !this.state.showPassWord,
     });
+  };
+  handleRedirectRegister = () => {
+    if (this.props.history) {
+      this.props.history.push("/register");
+    }
+  };
+  hadleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      this.handleLogin();
+    }
   };
   render() {
     //   JSX
@@ -82,16 +95,17 @@ class Login extends Component {
               <label htmlFor="">Password</label>
               <div className="custom-input-password">
                 <input
-                  type={this.state.isShowPassWord ? "text" : "password"}
+                  type={this.state.showPassWord ? "text" : "password"}
                   className="form-control"
                   placeholder="Enter your password"
                   value={this.state.password}
                   onChange={(event) => this.handleOnChangePassWord(event)}
+                  onKeyDown={(event) => this.hadleKeyDown(event)}
                 />
                 <span onClick={() => this.handleShowHidePassWord()}>
                   <i
                     className={
-                      this.state.isShowPassWord
+                      this.state.showPassWord
                         ? "far fa-eye"
                         : "far fa-eye-slash"
                     }
@@ -109,6 +123,12 @@ class Login extends Component {
             </div>
             <div className="col-12">
               <span className="forgot-password">Forgot your password?</span>
+              <span
+                className="redirect-register"
+                onClick={() => this.handleRedirectRegister()}
+              >
+                Do not have an account?
+              </span>
             </div>
             <div className="col-12 text-center mt-3">
               <span className="text-other-login">Or Login with :</span>
@@ -132,11 +152,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    navigate: (path) => dispatch(push(path)),
+    // navigate: (path) => dispatch(push(path)),
 
     // UserLoginFail: () => dispatch(actions.adminLoginFail()),
     userLoginSucces: (userInfo) => dispatch(actions.userLoginSucces(userInfo)),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));

@@ -5,6 +5,7 @@ import UserManage from "../containers/System/UserManage";
 import UserRedux from "../containers/System/Admin/UserRedux";
 import Header from "../containers/Header/Header";
 import ProductManage from "../containers/System/Admin/ProductManage";
+import PurchaseOrderManage from "../containers/System/Admin/PurchaseOrderManage";
 class System extends Component {
   render() {
     const { systemMenuPath, isLoggedIn } = this.props;
@@ -17,6 +18,10 @@ class System extends Component {
               <Route path="/system/user-manage" component={UserManage} />
               <Route path="/system/user-redux" component={UserRedux} />
               <Route path="/system/manage-product" component={ProductManage} />
+              <Route
+                path="/system/purchase-order"
+                component={PurchaseOrderManage}
+              />
               <Route
                 component={() => {
                   return <Redirect to={systemMenuPath} />;

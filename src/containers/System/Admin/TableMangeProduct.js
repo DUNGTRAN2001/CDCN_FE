@@ -34,8 +34,9 @@ class TableManageProduct extends Component {
     }
   }
   pagination = (number) => {
+    console.log("number", number);
     var arr = [];
-    for (let i = 1; i < number; i++) {
+    for (let i = 1; i <= number; i++) {
       arr.push(i);
     }
     return arr.map((element) => {
@@ -116,8 +117,8 @@ class TableManageProduct extends Component {
         <div className="pagination">
           {this.pagination(
             listProducts.length % 5 === 0
-              ? listProducts.length / 5
-              : listProducts.length / 5 + 1
+              ? (listProducts.length / 5) >> 0
+              : ((listProducts.length / 5) >> 0) + 1
           )}
         </div>
       </>

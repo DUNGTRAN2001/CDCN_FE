@@ -30,8 +30,8 @@
             "crud-redux": "CRUD redux",
             "admin-product": "Products",
             "manage-product": "Manage products",
-            "admin-cart": "Cart",
-            "manage-cart": "Manage cart",
+            "admin-purchase-order": "Purchase order",
+            "manage-purchase-order": "Manage purchase order",
             "manage-category": "Manage category"
         }
     },

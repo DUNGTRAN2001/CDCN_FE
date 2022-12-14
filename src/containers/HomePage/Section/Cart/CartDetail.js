@@ -7,9 +7,7 @@ import * as actions from "../../../../store/actions";
 class CartDetail extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      isCheck: false,
-    };
+    this.state = {};
   }
   componentDidMount() {}
   componentDidUpdate(prevProps, prevState, snpashot) {
@@ -79,9 +77,9 @@ class CartDetail extends Component {
             onClick={() => this.handleCheckTick(item)}
           >
             {item?.isCheckItem ? (
-              <i class="fas fa-check-square"></i>
+              <i className="fas fa-check-square"></i>
             ) : (
-              <i class="far fa-square"></i>
+              <i className="far fa-square"></i>
             )}
           </div>
           <div className="product-added">
@@ -91,7 +89,12 @@ class CartDetail extends Component {
                 backgroundImage: `url(${ROOT.ROOT}/api/Product/GetProductImage?productId=${item.ProductID}&imgNumber=1)`,
               }}
             ></div>
-            <div className="product-name">{item.ProductName}</div>
+            <div className="description">
+              <div className="product-name">{item.ProductName}</div>
+              <div className="product-description">
+                {item.Description ? item.Description : "Không có mô tả"}
+              </div>
+            </div>
           </div>
           <div className="product-price">{item.PricePerOne}đ</div>
           <div className="product-number">
@@ -122,13 +125,13 @@ class CartDetail extends Component {
             </div>
           </div>
           <div className="product-all-price">
-            {item.PricePerOne * item.ProductCount}
+            {item.PricePerOne * item.ProductCount}đ
           </div>
           <div
             className="delete-product"
             onClick={() => this.handleDeleteItem(item)}
           >
-            <i class="fas fa-trash-alt"></i>
+            <i className="fas fa-trash-alt"></i>
           </div>
         </div>
         <div className="free-ship">

@@ -1,6 +1,6 @@
 export default {
   api: {
-    API_BASE_URL: "http://duongtruongvu21.ddns.net:7149/",
+    API_BASE_URL: "http://itdut-s7.ddns.net:7149/",
     ROUTER_BASE_NAME: null,
   },
   app: {

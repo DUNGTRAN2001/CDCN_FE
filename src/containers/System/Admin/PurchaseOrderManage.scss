@@ -1,0 +1,67 @@
+.purchase-manage-container {
+    .table-main {
+        padding: 30px 100px;
+        #tableManageUser {
+            tr {
+                td,
+                th {
+                    text-align: center;
+                    font-size: 16px;
+                }
+                .detail {
+                    color: rgb(123, 123, 1);
+                    cursor: pointer;
+                }
+                .confirm,
+                .wait-goods,
+                .shipping,
+                .compplete,
+                .cancel {
+                    font-weight: 600;
+                    color: #cccccc;
+                    cursor: pointer;
+                }
+                .confirm {
+                    &:hover {
+                        color: blue;
+                    }
+                    &.active {
+                        color: blue;
+                    }
+                }
+                .wait-goods {
+                    &:hover {
+                        color: green;
+                    }
+                    &.active {
+                        color: green;
+                    }
+                }
+                .shipping {
+                    &:hover {
+                        color: purple;
+                    }
+                    &.active {
+                        color: purple;
+                    }
+                }
+                .compplete {
+                    &:hover {
+                        color: rgb(1, 104, 104);
+                    }
+                    &.active {
+                        color: rgb(1, 104, 104);
+                    }
+                }
+                .cancel {
+                    &:hover {
+                        color: red;
+                    }
+                    &.active {
+                        color: red;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,249 @@
+.payment-container {
+    margin: 0;
+    padding: 0;
+    padding: 30px 120px;
+    background: #f5f5f5;
+    font-family: 'Courier New', Courier, monospace;
+    min-height: 100%;
+    .payment-content {
+        width: 100%;
+        height: 100%;
+        .border-top {
+            background-image: repeating-linear-gradient(45deg, rgb(115, 8, 94), rgb(115, 8, 94) 33px, transparent 0, transparent 41px, #f18d9b 0, #f18d9b 74px, transparent 0, transparent 82px);
+            width: 100%;
+            height: 5px;
+        }
+        .delivery-address {
+            background: white;
+            padding: 10px 30px;
+            .address-title {
+                padding: 5px 0;
+                font-size: 20px;
+                font-weight: 600;
+                color: rgb(115, 8, 94);
+                i {
+                    margin-right: 15px;
+                }
+            }
+            .info-user {
+                padding: 5px 0;
+                display: flex;
+                justify-content: space-between;
+                font-size: 16px;
+                .name-and-phonenumber {
+                    font-weight: 600;
+                }
+                .address-user {
+                    span {
+                        font-size: 12px;
+                        margin-left: 20px;
+                        color: rgb(115, 8, 94);
+                        padding: 3px 5px;
+                        border: 1px solid rgb(115, 8, 94);
+                    }
+                }
+                .change-address {
+                    cursor: pointer;
+                    color: rgb(28, 28, 243);
+                    font-weight: 600;
+                    &:hover {
+                        opacity: 0.6;
+                    }
+                }
+            }
+        }
+        .product-to-payment {
+            background: white;
+            margin-top: 10px;
+            .payment-main {
+                padding: 10px 30px;
+                display: flex;
+                font-size: 16px;
+                border-bottom: 2px solid #f5f5f5;
+                .title-payment {
+                    font-size: 20px;
+                    width: 55%;
+                    font-weight: 600;
+                }
+                .unit-price {
+                    width: 10%;
+                    text-align: center;
+                }
+                .number {
+                    width: 25%;
+                    text-align: center;
+                }
+                .total-price {
+                    width: 10%;
+                    text-align: center;
+                }
+            }
+            .payment-content-product {
+                display: flex;
+                font-size: 16px;
+                align-items: center;
+                padding: 30px 30px;
+                border-bottom: 1px solid #cacaca;
+                .product-image {
+                    width: 55%;
+                    display: flex;
+                    align-items: center;
+                    .image {
+                        // background: url('https://shoptretho.com.vn/upload/image/product/20151119/quan-ni-mong-thu-carter-4.jpg');
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        height: 50px;
+                        width: 50px;
+                        background-size: contain;
+                        margin-right: 30px;
+                    }
+                }
+                .description {
+                    display: flex;
+                    flex-direction: column;
+                    .description-more {
+                        font-size: 14px;
+                        color: #bdbdbd;
+                    }
+                }
+                .product-price {
+                    width: 10%;
+                    text-align: center;
+                }
+                .product-number {
+                    width: 25%;
+                    text-align: center;
+                }
+                .product-price-total {
+                    width: 10%;
+                    text-align: center;
+                }
+            }
+        }
+        .product-note {
+            background: white;
+            margin-top: 2px;
+            border: 2px dashed #f5f5f5;
+            font-size: 16px;
+            .note-main {
+                display: flex;
+                height: 80px;
+                .note {
+                    width: 40%;
+                    border: 1px dashed #cacaca;
+                    padding-left: 20px;
+                    padding-top: 15px;
+                    input {
+                        border: 1px solid #cacaca;
+                        padding: 5px 10px;
+                        font-size: 14px;
+                        border-radius: 4px;
+                    }
+                }
+                .shipping-unit {
+                    width: 60%;
+                    border: 1px dashed #cacaca;
+                    display: flex;
+                    justify-content: space-around;
+                    padding-left: 20px;
+                    padding-top: 15px;
+                    .title-shipping {
+                        color: rgb(115, 8, 94);
+                        font-weight: 600;
+                    }
+                }
+            }
+            .total-all-product {
+                height: 50px;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                margin-right: 30px;
+                .tilte-total {
+                    font-weight: 600;
+                }
+                .price-total {
+                    color: rgb(115, 8, 94);
+                    font-size: 20px;
+                }
+            }
+        }
+        .payment-method {
+            background: white;
+            display: flex;
+            font-size: 16px;
+            gap: 20px;
+            padding: 15px 30px;
+            margin-top: 20px;
+            align-items: center;
+            border-bottom: 2px solid #f5f5f5;
+            .method-tilte {
+                font-weight: 600;
+                font-size: 20px;
+            }
+            .banking-method,
+            .cash-method {
+                padding: 10px 15px;
+                border: 1px solid #cacaca;
+                cursor: pointer;
+                &:hover {
+                    color: rgb(115, 8, 94);
+                    border: 1px solid rgb(115, 8, 94);
+                }
+                &.active {
+                    color: rgb(115, 8, 94);
+                    border: 1px solid rgb(115, 8, 94);
+                }
+            }
+        }
+        .content-payment-method {
+            background: white;
+            height: 350px;
+            .contnent-method {
+                padding: 15px 30px;
+                border-bottom: 2px solid #f5f5f5;
+                height: 100px;
+                font-size: 16px;
+                .title-1 {
+                    margin-right: 30px;
+                }
+            }
+            .order {
+                padding: 15px 30px;
+                border-bottom: 2px solid #f5f5f5;
+                height: 150px;
+                font-size: 16px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: flex-end;
+                .total-price-product,
+                .fee-shipping-order,
+                .total-payment {
+                    line-height: 40px;
+                    .total-2 {
+                        font-size: 24px;
+                        color: rgb(115, 8, 94);
+                    }
+                }
+            }
+            .submit-order {
+                padding: 15px 30px;
+                display: flex;
+                justify-content: flex-end;
+                align-items: flex-end;
+                font-size: 18px;
+                span {
+                    padding: 10px 30px;
+                    background: rgb(115, 8, 94);
+                    border-radius: 4px;
+                    color: white;
+                    cursor: pointer;
+                    &:hover {
+                        background: rgb(104, 2, 84);
+                    }
+                }
+            }
+        }
+    }
+}

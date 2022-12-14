@@ -33,11 +33,11 @@ export const adminMenu = [
   },
   {
     //quản lý giỏ hàng
-    name: "menu.admin.admin-cart",
+    name: "menu.admin.admin-purchase-order",
     menus: [
       {
-        name: "menu.admin.manage-cart",
-        link: "/system/manage-cart",
+        name: "menu.admin.manage-purchase-order",
+        link: "/system/purchase-order",
       },
     ],
   },

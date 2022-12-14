@@ -62,6 +62,11 @@ class HomeHeader extends Component {
       this.props.history.push(`/cart/${item}`);
     }
   };
+  handlePurChaseOrder = (item) => {
+    if (this.props.history) {
+      this.props.history.push(`/purchase-order/${item}`);
+    }
+  };
   handleKeyDown = (event) => {
     if (event.key === "Enter") {
       if (this.props.history && this.state.searchValue) {
@@ -84,7 +89,6 @@ class HomeHeader extends Component {
         <div className="home-header-container">
           <div className="home-header-content">
             <div className="left-content">
-              <i className="fas fa-bars"></i>
               <img
                 className="header-logo"
                 src={logo}
@@ -158,6 +162,13 @@ class HomeHeader extends Component {
                       </li>
                       <li onClick={() => this.handleViewCart(userInfo.UserID)}>
                         <i className="fas fa-shopping-cart"></i> Giỏ hàng
+                      </li>
+                      <li
+                        onClick={() =>
+                          this.handlePurChaseOrder(userInfo.UserID)
+                        }
+                      >
+                        <i className="fas fa-money-bill-wave"></i> Đơn mua
                       </li>
                       <li onClick={() => this.handleLogout()}>
                         <i className="fas fa-sign-out-alt"></i> Đăng xuất
@@ -279,7 +290,6 @@ const mapStateToProps = (state) => {
     isLoggedIn: state.user.isLoggedIn,
     language: state.app.language,
     userInfo: state.user.userInfo,
-    // oderIdRedux: state.admin.oderId,
   };
 };
 

@@ -9,6 +9,7 @@ class UserManage extends Component {
     super(props);
     this.state = {
       arrUser: [],
+      isOpenModal: false,
     };
   }
 

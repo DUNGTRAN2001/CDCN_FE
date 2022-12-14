@@ -7,6 +7,7 @@ import { LANGUAGES, ROOT } from "../../../../utils";
 import { withRouter } from "react-router";
 import CartDetail from "./CartDetail";
 import SubmitCart from "./SubmitCart";
+import { result } from "lodash";
 class Cart extends Component {
   constructor(props) {
     super(props);
@@ -28,8 +29,30 @@ class Cart extends Component {
   }
   componentDidUpdate(prevProps, prevState, snpashot) {
     if (prevProps.listItemInCart !== this.props.listItemInCart) {
+      let item = this.props.location.state?.itemIsChecked;
+      let arrItem = this.props.location.state?.arrItemIsChecked;
+      let newListCartItem = [...this.props.listItemInCart];
+      if (item) {
+        let result = newListCartItem?.findIndex((i) => i.ProductID === item.ID);
+        if (result !== -1) {
+          newListCartItem[result].isCheckItem = true;
+        }
+      }
+      if (arrItem && arrItem.length > 0) {
+        arrItem.map((item) => {
+          let result = newListCartItem?.findIndex(
+            (i) => i.ProductID === item.ProductID
+          );
+          if (result !== -1) {
+            newListCartItem[result].isCheckItem = true;
+          }
+          console.log("item", item);
+          console.log("result", result);
+        });
+      }
+      console.log("arritem", arrItem);
       this.setState({
-        cartItem: this.props.listItemInCart,
+        cartItem: newListCartItem,
       });
     }
   }
@@ -85,9 +108,9 @@ class Cart extends Component {
               onClick={() => this.handleCheckAllItem()}
             >
               {allCheck === false ? (
-                <i class="far fa-square"></i>
+                <i className="far fa-square"></i>
               ) : (
-                <i class="fas fa-check-square"></i>
+                <i className="fas fa-check-square"></i>
               )}
             </div>
             <div className="cart-item">Sản phẩm</div>

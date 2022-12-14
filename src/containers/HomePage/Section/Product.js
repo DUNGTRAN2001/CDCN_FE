@@ -57,7 +57,7 @@ class Product extends Component {
                     ></div>
                     <div className="content-bg">
                       <div className="title-image">{item.ProductName}</div>
-                      <div className="price">{item.PricePerOne}</div>
+                      <div className="price">{item.PricePerOne}đ</div>
                     </div>
                   </div>
                 );

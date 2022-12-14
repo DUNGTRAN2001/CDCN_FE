@@ -45,6 +45,16 @@
             }
             .forgot-password {
                 font-size: 12px;
+                cursor: pointer;
+            }
+            .redirect-register {
+                color: rgb(108, 108, 237);
+                font-size: 12px;
+                cursor: pointer;
+                float: right;
+                &:hover {
+                    color: rgb(47, 47, 243);
+                }
             }
             .social-login {
                 display: flex;

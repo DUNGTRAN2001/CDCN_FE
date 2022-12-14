@@ -20,6 +20,9 @@ import DetailProduct from "./HomePage/Section/Product/DetailProduct";
 import MoreProduct from "./HomePage/Section/Product/MoreProduct";
 import Cart from "./HomePage/Section/Cart/Cart";
 import Search from "./HomePage/Section/Search/Search";
+import Register from "./Auth/Register";
+import Payment from "./HomePage/Section/Cart/Payment";
+import PurchaseOrder from "./HomePage/Section/PurchaseOrder/PurchaseOrder";
 class App extends Component {
   handlePersistorState = () => {
     const { persistor } = this.props;
@@ -53,6 +56,10 @@ class App extends Component {
                     component={userIsNotAuthenticated(Login)}
                   />
                   <Route
+                    path={path.REGISTER}
+                    component={userIsNotAuthenticated(Register)}
+                  />
+                  <Route
                     path={path.SYSTEM}
                     component={userIsAuthenticated(System)}
                   />
@@ -62,6 +69,8 @@ class App extends Component {
                   <Route path={path.MORE_PRODUCT} component={MoreProduct} />
                   <Route path={path.CART} component={Cart} />
                   <Route path={path.SEARCH} component={Search} />
+                  <Route path={path.PAYMENT} component={Payment} />
+                  <Route path={path.PURCHASE_ORDER} component={PurchaseOrder} />
                 </Switch>
               </CustomScrollbars>
             </div>
@@ -99,7 +108,6 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    started: state.app.started,
     isLoggedIn: state.user.isLoggedIn,
   };
 };

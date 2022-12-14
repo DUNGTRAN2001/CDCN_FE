@@ -8,6 +8,7 @@ import Slider from "react-slick";
 import DescriptionProduct from "./DescriptionProduct";
 import SimilarProduct from "./SimilarProduct";
 import { withRouter } from "react-router";
+import { toast } from "react-toastify";
 class DetailProduct extends Component {
   constructor(props) {
     super(props);
@@ -15,6 +16,7 @@ class DetailProduct extends Component {
       detailProduct: {},
       isNumber: 1,
       countNumber: 1,
+      description: "",
     };
   }
   async componentDidMount() {
@@ -36,6 +38,9 @@ class DetailProduct extends Component {
     if (prevProps.match.params.id !== this.props.match.params.id) {
       this.setState({
         detailProduct: this.props.objectDetailProduct,
+        isNumber: 1,
+        countNumber: 1,
+        description: "",
       });
     }
   }
@@ -65,11 +70,49 @@ class DetailProduct extends Component {
     }
   };
   handleAddProductToCart = (data) => {
-    this.props.addProductToCartRedux({
-      userId: this.props.userInfo.UserID,
-      productID: data.ID,
-      productCount: this.state.countNumber,
-      description: "",
+    let { isLoggedIn } = this.props;
+    if (isLoggedIn) {
+      this.props.addProductToCartRedux({
+        userId: this.props.userInfo.UserID,
+        productID: data.ID,
+        productCount: this.state.countNumber,
+        description: this.state.description,
+      });
+    } else {
+      if (this.props.history) {
+        this.props.history.push("/login");
+      }
+    }
+    toast.success("Thêm sản phẩm vào giỏ hàng thành công!");
+  };
+  handleBuyNow = (item) => {
+    let { isLoggedIn, userInfo } = this.props;
+    let newItem = { ...item };
+    // newItem.isCheckItem = true;
+    if (isLoggedIn) {
+      this.props.addProductToCartRedux(
+        {
+          userId: this.props.userInfo.UserID,
+          productID: newItem.ID,
+          productCount: this.state.countNumber,
+          description: this.state.description,
+        },
+        this.props.userInfo.UserID
+      );
+      if (this.props.history) {
+        this.props.history.push(`/cart/${userInfo.UserID}`, {
+          itemIsChecked: newItem,
+        });
+      }
+    } else {
+      if (this.props.history) {
+        this.props.history.push(`/login`);
+      }
+    }
+  };
+  handleOnChangeDescription = (event) => {
+    this.setState({
+      description: event.target.value,
     });
   };
   render() {
@@ -144,7 +187,7 @@ class DetailProduct extends Component {
                   <i className="fas fa-star"></i>
                 </div>
                 <div className="review">100 Đánh giá</div>
-                <div className="sold">15 Đã bán</div>
+                <div className="sold">{detailProduct.SoldQuantity} Đã bán</div>
               </div>
               <div className="product-price">
                 <span> Giá sản phẩm :</span>
@@ -199,6 +242,15 @@ class DetailProduct extends Component {
                   </select>
                 </div>
               </div>
+              <div className="description">
+                <span>Mô Tả:</span>
+                <input
+                  type="text"
+                  placeholder="Nhập mô tả..."
+                  value={this.state.description}
+                  onChange={(event) => this.handleOnChangeDescription(event)}
+                />
+              </div>
               <div className="product-avalaible">
                 {detailProduct.Count} Sản phẩm có sẵn
               </div>
@@ -210,7 +262,12 @@ class DetailProduct extends Component {
                   <i className="fas fa-cart-plus"></i>
                   <span>Thêm vào giỏ hàng</span>
                 </div>
-                <div className="buy-now">Mua ngay</div>
+                <div
+                  className="buy-now"
+                  onClick={() => this.handleBuyNow(detailProduct)}
+                >
+                  Mua ngay
+                </div>
               </div>
             </div>
           </div>
@@ -230,14 +287,15 @@ const mapStateToProps = (state) => {
     objectDetailProduct: state.admin.infoProduct,
     language: state.app.language,
     userInfo: state.user.userInfo,
+    isLoggedIn: state.user.isLoggedIn,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchProductByIdRedux: (id) => dispatch(actions.fetchProductById(id)),
-    addProductToCartRedux: (data) =>
-      dispatch(actions.addProductToCartService(data)),
+    addProductToCartRedux: (data, id) =>
+      dispatch(actions.addProductToCartService(data, id)),
   };
 };
 

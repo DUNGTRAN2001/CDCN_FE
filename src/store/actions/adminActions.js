@@ -17,6 +17,11 @@ import {
   createPayMent,
   editProductToCart,
   searchProduct,
+  registerUser,
+  getPurchaseOrder,
+  updateOrderStatus,
+  getDetailPurchaseOrder,
+  getProductsOutStanding,
 } from "../../services/userService";
 import { toast } from "react-toastify";
 
@@ -323,13 +328,13 @@ export const fetchCartByUserIdFail = () => ({
   type: actionTypes.FETCH_CART_BY_USER_ID_FAILED,
 });
 
-export const addProductToCartService = (data) => {
+export const addProductToCartService = (data, userId) => {
   return async (dispatch, getState) => {
     try {
       let res = await addProductToCart(data);
       if (res && res.isSuccess === true) {
-        toast.success("Thêm sản phẩm vào giỏ hàng thành công!");
         dispatch(addProductToCartSuccess());
+        dispatch(fetchCartByUserId(userId));
       } else {
         dispatch(addProductToCartFail());
       }
@@ -446,4 +451,161 @@ export const searchProductSuccess = (data) => ({
 
 export const searchProductFail = () => ({
   type: actionTypes.SEARCH_PRODUCT_FAILED,
+});
+
+export const registerUserService = (data) => {
+  return async (dispatch, getState) => {
+    try {
+      let res = await registerUser(data);
+      if (res && res.isSuccess === true) {
+        toast.success("Đăng kí tài khoản thành công!");
+        dispatch(registerUserSuccess());
+      } else {
+        dispatch(registerUserFail());
+      }
+    } catch (error) {
+      dispatch(registerUserFail());
+      console.log("registerUserFail:", error);
+    }
+  };
+};
+
+export const registerUserSuccess = () => ({
+  type: actionTypes.REGISTER_USER_SUCCESS,
+});
+
+export const registerUserFail = () => ({
+  type: actionTypes.REGISTER_USER_FAILED,
+});
+
+export const fetchPurchaseOrder = (status, id) => {
+  return async (dispatch, getState) => {
+    try {
+      dispatch({
+        type: actionTypes.FETCH_PURCHASE_ORDER_START,
+      });
+      let res = await getPurchaseOrder(status, id);
+      if (res && res.isSuccess === true) {
+        dispatch(getPurchaseOrderSuccess(res.Data));
+      } else {
+        dispatch(getPurchaseOrderFail());
+      }
+    } catch (error) {
+      dispatch(getPurchaseOrderFail());
+      console.log("getPurchaseOrderFail:", error);
+    }
+  };
+};
+
+export const getPurchaseOrderSuccess = (data) => ({
+  type: actionTypes.FETCH_PURCHASE_ORDER_SUCCESS,
+  data: data,
+});
+
+export const getPurchaseOrderFail = () => ({
+  type: actionTypes.FETCH_PURCHASE_ORDER_FAILED,
+});
+
+export const updateOrderStatusService = (data) => {
+  return async (dispatch, getState) => {
+    try {
+      let res = await updateOrderStatus(data);
+      if (res && res.isSuccess === true) {
+        dispatch(updateOrderStatusSuccess());
+        dispatch(fetchPurchaseOrder(-1, 0));
+      } else {
+        dispatch(updateOrderStatusFail());
+      }
+    } catch (error) {
+      dispatch(updateOrderStatusFail());
+      console.log("getPurchaseOrderFail:", error);
+    }
+  };
+};
+
+export const updateOrderStatusSuccess = () => ({
+  type: actionTypes.UPDATE_PURCHASE_ORDER_SUCCESS,
+});
+
+export const updateOrderStatusFail = () => ({
+  type: actionTypes.UPDATE_PURCHASE_ORDER_FAILED,
+});
+
+export const fetchDetailPurchaseOrder = (id) => {
+  return async (dispatch, getState) => {
+    try {
+      let res = await getDetailPurchaseOrder(id);
+      if (res && res.isSuccess === true) {
+        dispatch(getDetailPurchaseOrderSuccess(res.Data));
+      } else {
+        dispatch(getDetailPurchaseOrderFail());
+      }
+    } catch (error) {
+      dispatch(getDetailPurchaseOrderFail());
+      console.log("getDetailPurchaseOrderFail:", error);
+    }
+  };
+};
+
+export const getDetailPurchaseOrderSuccess = (data) => ({
+  type: actionTypes.FETCH_PURCHASE_ORDER_DETAIL_SUCCESS,
+  data: data,
+});
+
+export const getDetailPurchaseOrderFail = () => ({
+  type: actionTypes.FETCH_PURCHASE_ORDER_DETAIL_FAILED,
+});
+
+export const changeStatusPurchaseOrder = (data, status, id) => {
+  return async (dispatch, getState) => {
+    try {
+      let res = await updateOrderStatus(data);
+      if (res && res.isSuccess === true) {
+        dispatch(changeStatusPurchaseOrderSuccess());
+        dispatch(fetchPurchaseOrder(status, id));
+      } else {
+        dispatch(changeStatusPurchaseOrderFail());
+      }
+    } catch (error) {
+      dispatch(changeStatusPurchaseOrderFail());
+      console.log("getPurchaseOrderFail:", error);
+    }
+  };
+};
+
+export const changeStatusPurchaseOrderSuccess = () => ({
+  type: actionTypes.CHANGE_STATUS_PURCHASE_ORDER_SUCCESS,
+});
+
+export const changeStatusPurchaseOrderFail = () => ({
+  type: actionTypes.CHANGE_STATUS_PURCHASE_ORDER_FAILED,
+});
+
+export const fetchProductOutstanding = () => {
+  return async (dispatch, getState) => {
+    try {
+      let res = await getProductsOutStanding();
+      if (res && res.isSuccess === true) {
+        dispatch(
+          getProductsOutStandingSuccess(
+            res.Data.sort((a, b) => b.SoldQuantity - a.SoldQuantity)
+          )
+        );
+      } else {
+        dispatch(getProductsOutStandingFail());
+      }
+    } catch (error) {
+      dispatch(getProductsOutStandingFail());
+      console.log("getProductsOutStandingFail:", error);
+    }
+  };
+};
+
+export const getProductsOutStandingSuccess = (data) => ({
+  type: actionTypes.FETCH_PRODUCT_OUTSTANDING_SUCCESS,
+  data: data,
+});
+
+export const getProductsOutStandingFail = () => ({
+  type: actionTypes.FETCH_PRODUCT_OUTSTANDING_FAILED,
 });

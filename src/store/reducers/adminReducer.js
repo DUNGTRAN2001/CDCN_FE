@@ -11,6 +11,10 @@ const initialState = {
   allProducts: [],
   cartByUserId: [],
   searchResult: [],
+  purchaseOrder: [],
+  purchaseOrderDetail: [],
+  isLoadingItem: false,
+  outStandingProduct: [],
 };
 
 const adminReducer = (state = initialState, action) => {
@@ -96,14 +100,50 @@ const adminReducer = (state = initialState, action) => {
         ...state,
       };
     case actionTypes.SEARCH_PRODUCT_SUCCESS:
-      console.log("check ss", action);
       state.searchResult = action.data;
       return {
         ...state,
       };
     case actionTypes.SEARCH_PRODUCT_FAILED:
-      console.log("check f", action);
       state.searchResult = [];
+      return {
+        ...state,
+      };
+    case actionTypes.FETCH_PURCHASE_ORDER_START:
+      state.isLoadingItem = true;
+      return {
+        ...state,
+      };
+    case actionTypes.FETCH_PURCHASE_ORDER_SUCCESS:
+      state.purchaseOrder = action.data;
+      return {
+        ...state,
+      };
+    case actionTypes.FETCH_PURCHASE_ORDER_FAILED:
+      state.purchaseOrder = [];
+      return {
+        ...state,
+      };
+
+    case actionTypes.FETCH_PURCHASE_ORDER_DETAIL_SUCCESS:
+      state.purchaseOrderDetail = action.data;
+      return {
+        ...state,
+      };
+    case actionTypes.FETCH_PURCHASE_ORDER_DETAIL_FAILED:
+      state.purchaseOrderDetail = [];
+      return {
+        ...state,
+      };
+    case actionTypes.FETCH_PRODUCT_OUTSTANDING_SUCCESS:
+      console.log("check ss", action);
+      state.outStandingProduct = action.data;
+      return {
+        ...state,
+      };
+    case actionTypes.FETCH_PRODUCT_OUTSTANDING_FAILED:
+      console.log("check f", action);
+      state.outStandingProduct = [];
       return {
         ...state,
       };

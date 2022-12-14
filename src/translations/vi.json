@@ -30,8 +30,8 @@
             "crud-redux": "CRUD redux",
             "admin-product": "Sản phẩm",
             "manage-product": "Quản lý sản phẩm",
-            "admin-cart": "Giỏ hàng",
-            "manage-cart": "Quản lý giỏ hàng",
+            "admin-purchase-order": "Đơn mua",
+            "manage-purchase-order": "Quản lý đơn mua",
             "manage-category": "Quản lý thư mục"
         }
     },

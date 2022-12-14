@@ -1,0 +1,49 @@
+.modal-content {
+    .modal-header {
+        background: #0071ba;
+        .title-modal {
+            text-transform: uppercase;
+            color: white;
+        }
+    }
+    .modal-body {
+        font-size: 14px;
+        padding: 10px 10px;
+        .infor-user {
+            margin-bottom: 10px;
+            border-bottom: 2px solid #cfcfcf;
+        }
+        .infor-order {
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-align: center;
+            color: #0071ba;
+        }
+        .detail-purchase-order {
+            border: 2px solid #cfcfcf;
+            margin-bottom: 10px;
+            padding: 10px 20px;
+            .name-product {
+                span {
+                    color: #0071ba;
+                }
+            }
+        }
+        .sum-price-all-product {
+            font-size: 18px;
+            float: right;
+            span {
+                font-weight: 600;
+                font-size: 18px;
+                color: #0071ba;
+            }
+        }
+    }
+    .modal-footer {
+        button {
+            padding: 10px 30px !important;
+            background: #0071ba !important;
+        }
+    }
+}

@@ -2,6 +2,7 @@ import axios from "../axios";
 const handleLoginApi = (email, password) => {
   return axios.post("/api/User/UserLogin", { email, password });
 };
+
 const getAllUser = () => {
   return axios.get("/api/UserInfo/GetUserInfos");
 };
@@ -63,6 +64,21 @@ const createPayMent = (data) => {
 const searchProduct = (key) => {
   return axios.get(`/api/Product/GetProducts?productName=${key}`);
 };
+const registerUser = (data) => {
+  return axios.post("/api/User/UserRegister", data);
+};
+const getPurchaseOrder = (status, userID) => {
+  return axios.get(`/api/Order/GetOrders?status=${status}&userID=${userID}`);
+};
+const updateOrderStatus = (data) => {
+  return axios.put("/api/Order/UpdateOrderStatus", data);
+};
+const getDetailPurchaseOrder = (id) => {
+  return axios.get(`/api/Order/GetOrderDetailsByOrderID?id=${id}`);
+};
+const getProductsOutStanding = () => {
+  return axios.get("/api/Product/GetProducts");
+};
 export {
   handleLoginApi,
   getAllUser,
@@ -83,4 +99,9 @@ export {
   createPayMent,
   editProductToCart,
   searchProduct,
+  registerUser,
+  getPurchaseOrder,
+  updateOrderStatus,
+  getDetailPurchaseOrder,
+  getProductsOutStanding,
 };

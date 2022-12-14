@@ -2,6 +2,7 @@
     padding: 30px 120px;
     background: #f5f5f5;
     font-family: 'Courier New', Courier, monospace;
+    min-height: 100%;
     .cart-all-product {
         width: 100%;
         display: flex;
@@ -64,6 +65,14 @@
                     background-color: #eee;
                     width: 150px;
                     margin-right: 30px;
+                }
+                .description {
+                    display: flex;
+                    flex-direction: column;
+                    .product-description {
+                        font-size: 14px;
+                        color: #bdbdbd;
+                    }
                 }
             }
             .product-price,
@@ -162,6 +171,7 @@
             font-weight: 600;
             .check-box {
                 width: 5%;
+                padding-left: 2%;
                 i {
                     color: rgb(115, 8, 94);
                 }

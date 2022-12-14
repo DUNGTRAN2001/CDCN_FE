@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import * as actions from "../../../../store/actions";
+import { toast } from "react-toastify";
 
 class SubmitCart extends Component {
   constructor(props) {
@@ -14,15 +15,14 @@ class SubmitCart extends Component {
     this.props.ChangeStateAllCheck();
   };
   handleOnPayMent = (item) => {
-    const formData = new FormData();
-    formData.append("userID", this.props.match.params.id);
-    if (item && item.length > 0) {
-      item.map((item) => {
-        formData.append("cartItemsID", item.ID);
+    if (this.props.history && item.length > 0) {
+      this.props.history.push("/payment", {
+        itemIsChecked: item,
+        id: this.props.match.params.id,
       });
+    } else {
+      toast.warning("Chưa có sản phẩm được chọn !");
     }
-    formData.append("Address", "Da Nang");
-    this.props.createPayMentRedux(formData);
   };
   render() {
     let { cartItem } = this.props;
@@ -40,19 +40,20 @@ class SubmitCart extends Component {
       <div className="submit-container">
         <div className="submit-content">
           <div className="shop-voucher">
-            <i class="fas fa-hand-holding-usd"></i>
+            <i className="fas fa-hand-holding-usd"></i>
             <span>Shop voucher</span>
             <input type="text" placeholder="Nhập mã giảm giá" />
           </div>
+
           <div className="submit-product">
             <div
               className="check-box"
               onClick={() => this.handleCheckAllItem()}
             >
               {this.props.allCheck === false ? (
-                <i class="far fa-square"></i>
+                <i className="far fa-square"></i>
               ) : (
-                <i class="fas fa-check-square"></i>
+                <i className="fas fa-check-square"></i>
               )}
             </div>
             <div className="product-slected">
@@ -81,9 +82,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    createPayMentRedux: (data) => dispatch(actions.createPayMentService(data)),
-  };
+  return {};
 };
 
 export default withRouter(

@@ -38,13 +38,13 @@ const createOrderForCart = () => {
   return axios.post("/api/Order/CreateOrder");
 };
 const CreateProduct = (data) => {
-  return axios.post("/api/ProductNoToken/CreateProduct", data);
+  return axios.post("/api/Product/CreateProduct", data);
 };
 const DeleteProduct = (productId) => {
-  return axios.delete(`/api/ProductNoToken/DeleteProduct?id=${productId}`);
+  return axios.delete(`/api/Product/DeleteProduct?id=${productId}`);
 };
 const EditProduct = (data) => {
-  return axios.put("/api/ProductNoToken/UpdateProduct", data);
+  return axios.put("/api/Product/UpdateProduct", data);
 };
 const getCartByUserId = (userId) => {
   return axios.get(`/api/Cart/GetCartItemsByUserID?id=${userId}`);
@@ -79,6 +79,9 @@ const getDetailPurchaseOrder = (id) => {
 const getProductsOutStanding = () => {
   return axios.get("/api/Product/GetProducts");
 };
+const changePasswordUser = (data) => {
+  return axios.put("/api/User/ChangePassword", data);
+};
 export {
   handleLoginApi,
   getAllUser,
@@ -104,4 +107,5 @@ export {
   updateOrderStatus,
   getDetailPurchaseOrder,
   getProductsOutStanding,
+  changePasswordUser,
 };

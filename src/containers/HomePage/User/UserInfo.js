@@ -19,7 +19,6 @@ class UserInfo extends Component {
       avatar: "",
       UserID: "",
       file: "",
-      Role: "R2",
       arrInfoUser: {},
     };
   }
@@ -75,7 +74,6 @@ class UserInfo extends Component {
     formData.append("Sex", this.state.Sex);
     formData.append("CitizenID", this.state.CitizenID);
     formData.append("Avatar", this.state.file);
-    formData.append("Role", this.state.Role);
     this.props.editInfoUser(formData);
     getAUserInFoByID(this.props.match.params.id);
   };
@@ -201,14 +199,22 @@ class UserInfo extends Component {
                             />
                           </div>
                         </div>
-
-                        <button
-                          className="btn btn-primary"
-                          type="button"
-                          onClick={() => this.handleEditUser()}
-                        >
-                          Save changes
-                        </button>
+                        <div className="button-change">
+                          <button
+                            className="btn btn-primary"
+                            type="button"
+                            onClick={() => this.handleEditUser()}
+                          >
+                            Save changes
+                          </button>
+                          <button
+                            className="btn btn-warning"
+                            type="button"
+                            // onClick={() => this.handleEditUser()}
+                          >
+                            Change Password
+                          </button>
+                        </div>
                       </form>
                     </div>
                   </div>

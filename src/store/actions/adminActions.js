@@ -60,7 +60,7 @@ export const editAUser = (data) => {
         dispatch(editImageSuccess());
       } else {
         dispatch(editImageFail());
-        toast.error("Edit info user fail!");
+        console.log("Edit info user fail!");
       }
     } catch (error) {
       dispatch(editImageFail());
@@ -226,13 +226,12 @@ export const creatProductService = (data) => {
   return async (dispatch, getState) => {
     try {
       let res = await CreateProduct(data);
-      console.log("check res", res);
       if (res && res.isSuccess === true) {
         toast.success("Save product success!");
         dispatch(creatProductSuccess());
         dispatch(fetchAllProduct());
       } else {
-        toast.error("Save product fail!");
+        console.log("Save product fail!");
         dispatch(creatProductFail());
       }
     } catch (error) {
@@ -253,13 +252,12 @@ export const deleteProductService = (id) => {
   return async (dispatch, getState) => {
     try {
       let res = await DeleteProduct(id);
-      console.log("check res", res);
       if (res && res.isSuccess === true) {
         toast.success("Delete product success!");
         dispatch(deleteProductSuccess());
         dispatch(fetchAllProduct());
       } else {
-        toast.error("Delete product fail!");
+        console.log("Delete product fail!");
         dispatch(deleteProductFail());
       }
     } catch (error) {
@@ -280,13 +278,12 @@ export const editProductService = (data) => {
   return async (dispatch, getState) => {
     try {
       let res = await EditProduct(data);
-      console.log("check res", res);
       if (res && res.isSuccess === true) {
         toast.success("Edit product success!");
         dispatch(editProductSuccess());
         dispatch(fetchAllProduct());
       } else {
-        toast.error("Edit product fail!");
+        console.log("Edit product fail!");
         dispatch(editProductFail());
       }
     } catch (error) {
@@ -333,6 +330,7 @@ export const addProductToCartService = (data, userId) => {
     try {
       let res = await addProductToCart(data);
       if (res && res.isSuccess === true) {
+        toast.success("Thêm sản phẩm vào giỏ hàng thành công!");
         dispatch(addProductToCartSuccess());
         dispatch(fetchCartByUserId(userId));
       } else {
@@ -357,7 +355,6 @@ export const deleteProductFromCartService = (id, userId) => {
   return async (dispatch, getState) => {
     try {
       let res = await deleteProductFromCart(id);
-      console.log("check res", res);
       if (res && res.isSuccess === true) {
         toast.success("Xóa sản phẩm thành công!");
         dispatch(deleteProductFromCartSuccess(id));

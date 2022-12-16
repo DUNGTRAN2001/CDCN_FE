@@ -9,6 +9,8 @@ import { LANGUAGES } from "../../utils/constant";
 import * as actions from "../../store/actions";
 import { withRouter } from "react-router";
 import { path, ROOT } from "../../utils/constant";
+import Cookies from "js-cookie";
+
 class HomeHeader extends Component {
   constructor(props) {
     super(props);
@@ -47,6 +49,7 @@ class HomeHeader extends Component {
     }
   };
   handleLogout = () => {
+    Cookies.remove("token");
     this.props.processLogout();
     if (this.props.history) {
       this.props.history.push(`/home`);

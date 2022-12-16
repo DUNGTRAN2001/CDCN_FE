@@ -7,7 +7,7 @@ import * as actions from "../../store/actions";
 import "./Login.scss";
 import { handleLoginApi } from "../../services/userService";
 import { withRouter } from "react-router";
-
+import Cookies from "js-cookie";
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -45,6 +45,7 @@ class Login extends Component {
       if (data && data.isSuccess === true) {
         // todo
         this.props.userLoginSucces(data["Data"][1]);
+        Cookies.set("token", JSON.stringify(data["Data"][0]), {});
         console.log("login success");
       }
     } catch (e) {

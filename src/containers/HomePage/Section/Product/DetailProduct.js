@@ -58,9 +58,6 @@ class DetailProduct extends Component {
         countNumber: event.target.value,
       });
     }
-    this.setState({
-      countNumber: event.target.value,
-    });
   };
   handleOnKeyPress = (event) => {
     if (event.charCode < 47) {

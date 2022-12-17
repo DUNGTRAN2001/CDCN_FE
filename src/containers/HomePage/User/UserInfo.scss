@@ -20,3 +20,13 @@
     width: 200px;
     height: 200px;
 }
+
+.custom-input-password {
+    position: relative;
+    i {
+        cursor: pointer;
+        position: absolute;
+        right: 5px;
+        top: 10px;
+    }
+}

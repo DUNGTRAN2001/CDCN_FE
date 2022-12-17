@@ -6,6 +6,7 @@ import * as actions from "../../../store/actions";
 import { withRouter } from "react-router";
 import { ROOT } from "../../../utils/constant";
 import { getAUserInFoByID } from "../../../services/userService";
+import ModalChangePassword from "./ModalChangePassword";
 class UserInfo extends Component {
   constructor(props) {
     super(props);
@@ -20,6 +21,7 @@ class UserInfo extends Component {
       UserID: "",
       file: "",
       arrInfoUser: {},
+      isOpenModal: false,
     };
   }
   async componentDidMount() {
@@ -77,6 +79,16 @@ class UserInfo extends Component {
     this.props.editInfoUser(formData);
     getAUserInFoByID(this.props.match.params.id);
   };
+  handleChangePassword = () => {
+    this.setState({
+      isOpenModal: true,
+    });
+  };
+  toggleUserModal = () => {
+    this.setState({
+      isOpenModal: !this.state.isOpenModal,
+    });
+  };
   render() {
     let { arrInfoUser } = this.state;
     let { FirstName, LastName, PhoneNumber, Address, Sex, CitizenID } =
@@ -84,13 +96,17 @@ class UserInfo extends Component {
     return (
       <div className="user-info-container">
         <HomeHeader isShowBanner={false} />
+        <ModalChangePassword
+          isOpen={this.state.isOpenModal}
+          toggleFromParent={this.toggleUserModal}
+        />
         <div className="user-info-container">
           {arrInfoUser && (
             <div className="container-xl px-4 mt-5 ">
               <div className="row">
                 <div className="col-xl-4">
                   <div className="card mb-4 mb-xl-0">
-                    <div className="card-header">Profile Picture</div>
+                    <div className="card-header">Ảnh người dùng</div>
                     <div className="card-body text-center">
                       <img
                         className="img-account-profile rounded-circle mb-2"
@@ -98,7 +114,7 @@ class UserInfo extends Component {
                         alt=""
                       />
                       <div className="small font-italic text-muted mb-4">
-                        JPG or PNG no larger than 5 MB
+                        JPG or PNG không lớn hơn 5mb
                       </div>
                       <button className="btn btn-primary" type="button">
                         <input
@@ -116,12 +132,12 @@ class UserInfo extends Component {
                 </div>
                 <div className="col-xl-8">
                   <div className="card mb-4">
-                    <div className="card-header">Account Details</div>
+                    <div className="card-header">Chi tiết tài khoản</div>
                     <div className="card-body">
                       <form>
                         <div className="row gx-3 mb-3">
                           <div className="col-md-6">
-                            <label className="small mb-1">First name</label>
+                            <label className="small mb-1">Tên người dùng</label>
                             <input
                               className="form-control"
                               type="text"
@@ -133,7 +149,7 @@ class UserInfo extends Component {
                             />
                           </div>
                           <div className="col-md-6">
-                            <label className="small mb-1">Last name</label>
+                            <label className="small mb-1">Họ người dùng</label>
                             <input
                               className="form-control"
                               type="text"
@@ -147,7 +163,7 @@ class UserInfo extends Component {
                         </div>
                         <div className="row gx-3 mb-3">
                           <div className="col-md-6">
-                            <label className="small mb-1">PhoneNumber</label>
+                            <label className="small mb-1">Số điện thoại</label>
                             <input
                               className="form-control"
                               type="text"
@@ -159,7 +175,7 @@ class UserInfo extends Component {
                             />
                           </div>
                           <div className="col-md-6">
-                            <label className="small mb-1">Address</label>
+                            <label className="small mb-1">Dịa chỉ</label>
                             <input
                               className="form-control"
                               type="text"
@@ -173,7 +189,7 @@ class UserInfo extends Component {
                         </div>
                         <div className="row gx-3 mb-3">
                           <div className="col-md-6">
-                            <label className="small mb-1">Sex</label>
+                            <label className="small mb-1">Giới tính</label>
                             <select
                               name="gender"
                               className="form-control"
@@ -182,12 +198,14 @@ class UserInfo extends Component {
                                 this.onChangeInput(event, "Sex")
                               }
                             >
-                              <option value="true">Male</option>
-                              <option value="false">FeMale</option>
+                              <option value="true">Nam</option>
+                              <option value="false">Nữ</option>
                             </select>
                           </div>
                           <div className="col-md-6">
-                            <label className="small mb-1">CitizenID</label>
+                            <label className="small mb-1">
+                              Số chứng minh nhân dân
+                            </label>
                             <input
                               className="form-control"
                               type="tel"
@@ -205,14 +223,14 @@ class UserInfo extends Component {
                             type="button"
                             onClick={() => this.handleEditUser()}
                           >
-                            Save changes
+                            Lưu thay đổi
                           </button>
                           <button
                             className="btn btn-warning"
                             type="button"
-                            // onClick={() => this.handleEditUser()}
+                            onClick={() => this.handleChangePassword()}
                           >
-                            Change Password
+                            Thay đổi mật khẩu
                           </button>
                         </div>
                       </form>

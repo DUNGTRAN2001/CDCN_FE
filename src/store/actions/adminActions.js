@@ -22,6 +22,7 @@ import {
   updateOrderStatus,
   getDetailPurchaseOrder,
   getProductsOutStanding,
+  changePasswordUser,
 } from "../../services/userService";
 import { toast } from "react-toastify";
 
@@ -605,4 +606,31 @@ export const getProductsOutStandingSuccess = (data) => ({
 
 export const getProductsOutStandingFail = () => ({
   type: actionTypes.FETCH_PRODUCT_OUTSTANDING_FAILED,
+});
+
+export const changePasswordService = (data) => {
+  return async (dispatch, getState) => {
+    try {
+      let res = await changePasswordUser(data);
+      console.log("check res", res);
+      if (res && res.isSuccess === true) {
+        toast.success("Thay đổi mật khẩu thành công");
+        dispatch(changePasswordUserSuccess());
+      } else {
+        toast.error(res.errMessage);
+        dispatch(changePasswordUserFail());
+      }
+    } catch (error) {
+      dispatch(changePasswordUserFail());
+      console.log("changePasswordUserFail:", error);
+    }
+  };
+};
+
+export const changePasswordUserSuccess = () => ({
+  type: actionTypes.CHANGE_PASSWORD_SUCCESS,
+});
+
+export const changePasswordUserFail = () => ({
+  type: actionTypes.CHANGE_PASSWORD_FAILED,
 });

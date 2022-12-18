@@ -43,9 +43,9 @@
         "last-name": "LastName",
         "phone-number": "PhoneNumber",
         "address": "Address",
-        "gender": "Gender",
-        "position": "Position",
-        "role-id": "RoleId",
+        "sex": "Sex",
+        "role": "Role",
+        "citizenID": "CitizenID",
         "image": "Image",
         "save": "Save user",
         "edit": "Save change"

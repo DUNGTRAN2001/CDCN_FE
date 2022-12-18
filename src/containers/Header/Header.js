@@ -14,8 +14,9 @@ class Header extends Component {
   };
   render() {
     const { processLogout, userInfo, language } = this.props;
-    // console.log("check user info", this.props.userInfo.firstName);
-    let name = userInfo.firstName;
+
+    let name = userInfo?.FirstName + " " + userInfo?.LastName;
+    console.log(name);
     return (
       <div className="header-container">
         {/* thanh navigator */}
@@ -25,7 +26,7 @@ class Header extends Component {
         <div className="languages">
           <span className="welcome">
             <FormattedMessage id="home-header.welcome" />,{" "}
-            {userInfo && userInfo.firstName ? name : " "} !
+            {userInfo && userInfo?.FirstName ? name : " "} !
           </span>
           <span
             className={

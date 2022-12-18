@@ -226,6 +226,11 @@
                         color: rgb(115, 8, 94);
                     }
                 }
+                .fee-shipping-order {
+                    span {
+                        text-decoration: line-through;
+                    }
+                }
             }
             .submit-order {
                 padding: 15px 30px;

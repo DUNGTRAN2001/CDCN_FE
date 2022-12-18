@@ -82,6 +82,9 @@ const getProductsOutStanding = () => {
 const changePasswordUser = (data) => {
   return axios.put("/api/User/ChangePassword", data);
 };
+const createAccountUser = (data) => {
+  return axios.post("/api/User/UserRegisterFull", data);
+};
 export {
   handleLoginApi,
   getAllUser,
@@ -108,4 +111,5 @@ export {
   getDetailPurchaseOrder,
   getProductsOutStanding,
   changePasswordUser,
+  createAccountUser,
 };

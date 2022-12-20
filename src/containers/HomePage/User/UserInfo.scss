@@ -10,9 +10,23 @@
         height: 630px;
         background-size: cover;
     }
+    .button-change {
+        display: flex;
+        justify-content: space-between;
+    }
 }
 
 .img-account-profile {
     width: 200px;
     height: 200px;
+}
+
+.custom-input-password {
+    position: relative;
+    i {
+        cursor: pointer;
+        position: absolute;
+        right: 5px;
+        top: 10px;
+    }
 }

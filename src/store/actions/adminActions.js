@@ -22,6 +22,8 @@ import {
   updateOrderStatus,
   getDetailPurchaseOrder,
   getProductsOutStanding,
+  changePasswordUser,
+  createAccountUser,
 } from "../../services/userService";
 import { toast } from "react-toastify";
 
@@ -59,8 +61,8 @@ export const editAUser = (data) => {
         toast.success("Chỉnh sửa thông tin thành công!");
         dispatch(editImageSuccess());
       } else {
+        toast.error(res.errMessage);
         dispatch(editImageFail());
-        toast.error("Edit info user fail!");
       }
     } catch (error) {
       dispatch(editImageFail());
@@ -226,13 +228,12 @@ export const creatProductService = (data) => {
   return async (dispatch, getState) => {
     try {
       let res = await CreateProduct(data);
-      console.log("check res", res);
       if (res && res.isSuccess === true) {
-        toast.success("Save product success!");
+        toast.success("Lưu sản phẩm thành công!");
         dispatch(creatProductSuccess());
         dispatch(fetchAllProduct());
       } else {
-        toast.error("Save product fail!");
+        toast.error(res.errMessage);
         dispatch(creatProductFail());
       }
     } catch (error) {
@@ -253,13 +254,12 @@ export const deleteProductService = (id) => {
   return async (dispatch, getState) => {
     try {
       let res = await DeleteProduct(id);
-      console.log("check res", res);
       if (res && res.isSuccess === true) {
-        toast.success("Delete product success!");
+        toast.success("Xóa sản phẩm thành công!");
         dispatch(deleteProductSuccess());
         dispatch(fetchAllProduct());
       } else {
-        toast.error("Delete product fail!");
+        toast.error(res.errMessage);
         dispatch(deleteProductFail());
       }
     } catch (error) {
@@ -280,13 +280,12 @@ export const editProductService = (data) => {
   return async (dispatch, getState) => {
     try {
       let res = await EditProduct(data);
-      console.log("check res", res);
       if (res && res.isSuccess === true) {
-        toast.success("Edit product success!");
+        toast.success("Chỉnh sửa sản phẩm thành công!");
         dispatch(editProductSuccess());
         dispatch(fetchAllProduct());
       } else {
-        toast.error("Edit product fail!");
+        toast.success(res.errMessage);
         dispatch(editProductFail());
       }
     } catch (error) {
@@ -333,9 +332,11 @@ export const addProductToCartService = (data, userId) => {
     try {
       let res = await addProductToCart(data);
       if (res && res.isSuccess === true) {
+        toast.success("Thêm sản phẩm vào giỏ hàng thành công!");
         dispatch(addProductToCartSuccess());
         dispatch(fetchCartByUserId(userId));
       } else {
+        toast.error(res.errMessage);
         dispatch(addProductToCartFail());
       }
     } catch (error) {
@@ -357,12 +358,12 @@ export const deleteProductFromCartService = (id, userId) => {
   return async (dispatch, getState) => {
     try {
       let res = await deleteProductFromCart(id);
-      console.log("check res", res);
       if (res && res.isSuccess === true) {
-        toast.success("Xóa sản phẩm thành công!");
+        toast.success("Xóa sản phẩm khỏi giỏ hàng thành công!");
         dispatch(deleteProductFromCartSuccess(id));
         dispatch(fetchCartByUserId(userId));
       } else {
+        toast.error(res.errMessage);
         dispatch(deleteProductFromCartFail());
       }
     } catch (error) {
@@ -387,6 +388,7 @@ export const createPayMentService = (data) => {
         toast.success("Mua sản phẩm thành công!");
         dispatch(createPayMentSuccess());
       } else {
+        toast.error(res.errMessage);
         dispatch(createPayMentFail());
       }
     } catch (error) {
@@ -461,6 +463,7 @@ export const registerUserService = (data) => {
         toast.success("Đăng kí tài khoản thành công!");
         dispatch(registerUserSuccess());
       } else {
+        toast.error(res.errMessage);
         dispatch(registerUserFail());
       }
     } catch (error) {
@@ -608,4 +611,59 @@ export const getProductsOutStandingSuccess = (data) => ({
 
 export const getProductsOutStandingFail = () => ({
   type: actionTypes.FETCH_PRODUCT_OUTSTANDING_FAILED,
+});
+
+export const changePasswordService = (data) => {
+  return async (dispatch, getState) => {
+    try {
+      let res = await changePasswordUser(data);
+      console.log("check res", res);
+      if (res && res.isSuccess === true) {
+        toast.success("Thay đổi mật khẩu thành công");
+        dispatch(changePasswordUserSuccess());
+      } else {
+        toast.error(res.errMessage);
+        dispatch(changePasswordUserFail());
+      }
+    } catch (error) {
+      dispatch(changePasswordUserFail());
+      console.log("changePasswordUserFail:", error);
+    }
+  };
+};
+
+export const changePasswordUserSuccess = () => ({
+  type: actionTypes.CHANGE_PASSWORD_SUCCESS,
+});
+
+export const changePasswordUserFail = () => ({
+  type: actionTypes.CHANGE_PASSWORD_FAILED,
+});
+
+export const createAccountUserService = (data) => {
+  return async (dispatch, getState) => {
+    try {
+      let res = await createAccountUser(data);
+      console.log("check res", res);
+      if (res && res.isSuccess === true) {
+        toast.success("Tạo tài khoản thành công");
+        dispatch(createAccountUserSuccess());
+        dispatch(fetchAllUsersStart());
+      } else {
+        toast.error(res.errMessage);
+        dispatch(createAccountUserFail());
+      }
+    } catch (error) {
+      dispatch(createAccountUserFail());
+      console.log("createAccountUserFail:", error);
+    }
+  };
+};
+
+export const createAccountUserSuccess = () => ({
+  type: actionTypes.CREATE_ACCOUNT_USER_SUCCESS,
+});
+
+export const createAccountUserFail = () => ({
+  type: actionTypes.CREATE_ACCOUNT_USER_FAILED,
 });

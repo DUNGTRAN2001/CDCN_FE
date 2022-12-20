@@ -50,9 +50,20 @@ class DetailProduct extends Component {
     });
   };
   handleOnChangeCountNumber = (event) => {
-    this.setState({
-      countNumber: event.target.value,
-    });
+    if (event.target.value > this.state.detailProduct.Count) {
+      event.preventDefault();
+      toast.warning("Sản phẩm hiện tại không đủ");
+    } else {
+      this.setState({
+        countNumber: event.target.value,
+      });
+    }
+  };
+  handleOnKeyPress = (event) => {
+    if (event.charCode < 47) {
+      event.preventDefault();
+      toast.warning("Số lượng sản phẩm không được nhỏ hơn 1");
+    }
   };
   handleMinusNumber = () => {
     if (this.state.countNumber > 1) {
@@ -72,18 +83,20 @@ class DetailProduct extends Component {
   handleAddProductToCart = (data) => {
     let { isLoggedIn } = this.props;
     if (isLoggedIn) {
-      this.props.addProductToCartRedux({
-        userId: this.props.userInfo.UserID,
-        productID: data.ID,
-        productCount: this.state.countNumber,
-        description: this.state.description,
-      });
+      this.props.addProductToCartRedux(
+        {
+          userId: this.props.userInfo.UserID,
+          productID: data.ID,
+          productCount: this.state.countNumber,
+          description: this.state.description,
+        },
+        this.props.userInfo.UserID
+      );
     } else {
       if (this.props.history) {
         this.props.history.push("/login");
       }
     }
-    toast.success("Thêm sản phẩm vào giỏ hàng thành công!");
   };
   handleBuyNow = (item) => {
     let { isLoggedIn, userInfo } = this.props;
@@ -215,6 +228,7 @@ class DetailProduct extends Component {
                     type="text"
                     value={this.state.countNumber}
                     onChange={(event) => this.handleOnChangeCountNumber(event)}
+                    onKeyPress={(event) => this.handleOnKeyPress(event)}
                   />
                   <span
                     className="plus"

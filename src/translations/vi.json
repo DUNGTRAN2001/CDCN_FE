@@ -43,9 +43,9 @@
         "last-name": "Họ",
         "phone-number": "Số điện thoại",
         "address": "Địa chỉ",
-        "gender": "Giới tính",
-        "position": "Chức danh",
-        "role-id": "Vai trò",
+        "sex": "Giới tính",
+        "role": "Vai trò",
+        "citizenID": "Chứng minh nhân dân",
         "image": "Ảnh",
         "save": "Lưu người dùng",
         "edit": "Lưu thay đổi"

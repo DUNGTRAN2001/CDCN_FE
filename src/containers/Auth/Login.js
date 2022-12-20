@@ -7,7 +7,7 @@ import * as actions from "../../store/actions";
 import "./Login.scss";
 import { handleLoginApi } from "../../services/userService";
 import { withRouter } from "react-router";
-
+import Cookies from "js-cookie";
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -45,6 +45,7 @@ class Login extends Component {
       if (data && data.isSuccess === true) {
         // todo
         this.props.userLoginSucces(data["Data"][1]);
+        Cookies.set("token", JSON.stringify(data["Data"][0]), {});
         console.log("login success");
       }
     } catch (e) {
@@ -82,11 +83,11 @@ class Login extends Component {
           <div className="login-content row">
             <div className="col-12 login-text">Login</div>
             <div className="col-12 form-group login-input">
-              <label htmlFor="">Username</label>
+              <label htmlFor="">Email</label>
               <input
                 type="text"
                 className="form-control"
-                placeholder="Enter your username"
+                placeholder="Enter your email"
                 value={this.state.username}
                 onChange={(event) => this.handleOnChangeUserName(event)}
               />

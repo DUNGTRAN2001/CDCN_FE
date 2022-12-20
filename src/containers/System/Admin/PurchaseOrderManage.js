@@ -97,6 +97,7 @@ class PurchaseOrderManage extends Component {
       });
     }
   };
+  // hàm hoàn thành đơn
   handleComplete = (item) => {
     if (item.Status === 6) {
       toast.error("Đơn đã bị hủy");

@@ -161,13 +161,12 @@ class Payment extends Component {
                   Tổng tiền hàng : {allPrice}đ
                 </div>
                 <div className="fee-shipping-order">
-                  Phí vận chuyển : {this.state.feeShipping}đ
+                  Phí vận chuyển : <span>{this.state.feeShipping}đ</span> (Free
+                  shipping)
                 </div>
                 <div className="total-payment">
                   <span className="total-1">Tổng thanh toán : </span>
-                  <span className="total-2">
-                    {allPrice + this.state.feeShipping}đ
-                  </span>
+                  <span className="total-2">{allPrice}đ</span>
                 </div>
               </div>
               <div className="submit-order">

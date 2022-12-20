@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./HomeHeader.scss";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo1.png";
 // biến chuyển đổi ngôn ngữ
 import { FormattedMessage } from "react-intl";
 import { LANGUAGES } from "../../utils/constant";
@@ -9,6 +9,9 @@ import { LANGUAGES } from "../../utils/constant";
 import * as actions from "../../store/actions";
 import { withRouter } from "react-router";
 import { path, ROOT } from "../../utils/constant";
+import Cookies from "js-cookie";
+import { toast } from "react-toastify";
+
 class HomeHeader extends Component {
   constructor(props) {
     super(props);
@@ -47,6 +50,7 @@ class HomeHeader extends Component {
     }
   };
   handleLogout = () => {
+    Cookies.remove("token");
     this.props.processLogout();
     if (this.props.history) {
       this.props.history.push(`/home`);
@@ -81,6 +85,9 @@ class HomeHeader extends Component {
     this.setState({
       searchValue: event.target.value,
     });
+  };
+  hanldeSupport = () => {
+    toast.warning("Chức năng đang được phát triển");
   };
   render() {
     let { language, isLoggedIn, userInfo } = this.props;
@@ -139,7 +146,7 @@ class HomeHeader extends Component {
               </div>
             </div>
             <div className="right-content">
-              <div className="support">
+              <div className="support" onClick={() => this.hanldeSupport()}>
                 <i className="fas fa-question-circle"></i>
                 <FormattedMessage id="home-header.support" />
               </div>
@@ -230,7 +237,7 @@ class HomeHeader extends Component {
               <div className="option">
                 <div className="option-child">
                   <div className="icon-child">
-                    <i className="fas fa-hospital-alt"></i>
+                    <i class="fas fa-chess-rook"></i>
                   </div>
                   <div className="text-child">
                     <FormattedMessage id="banner.child1" />
@@ -238,7 +245,7 @@ class HomeHeader extends Component {
                 </div>
                 <div className="option-child">
                   <div className="icon-child">
-                    <i className="fas fa-mobile-alt"></i>
+                    <i class="fas fa-chess-queen"></i>
                   </div>
                   <div className="text-child">
                     <FormattedMessage id="banner.child2" />
@@ -246,7 +253,7 @@ class HomeHeader extends Component {
                 </div>
                 <div className="option-child">
                   <div className="icon-child">
-                    <i className="fas fa-procedures"></i>
+                    <i class="fas fa-chess-pawn"></i>
                   </div>
                   <div className="text-child">
                     <FormattedMessage id="banner.child3" />
@@ -254,7 +261,7 @@ class HomeHeader extends Component {
                 </div>
                 <div className="option-child">
                   <div className="icon-child">
-                    <i className="fas fa-vials"></i>
+                    <i class="fas fa-chess-knight"></i>
                   </div>
                   <div className="text-child">
                     <FormattedMessage id="banner.child4" />
@@ -262,7 +269,7 @@ class HomeHeader extends Component {
                 </div>
                 <div className="option-child">
                   <div className="icon-child">
-                    <i className="fas fa-briefcase-medical"></i>
+                    <i class="fas fa-chess-king"></i>
                   </div>
                   <div className="text-child">
                     <FormattedMessage id="banner.child5" />
@@ -270,7 +277,7 @@ class HomeHeader extends Component {
                 </div>
                 <div className="option-child">
                   <div className="icon-child">
-                    <i className="fas fa-diagnoses"></i>
+                    <i class="fas fa-chess-bishop"></i>
                   </div>
                   <div className="text-child">
                     <FormattedMessage id="banner.child6" />
@@ -299,7 +306,6 @@ const mapDispatchToProps = (dispatch) => {
     changeLanguageAppRedux: (language) =>
       dispatch(actions.changeLanguageApp(language)),
     processLogout: () => dispatch(actions.processLogout()),
-    // createOderIdForCart: () => dispatch(actions.CreatOrderForCart()),
   };
 };
 

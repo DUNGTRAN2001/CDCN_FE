@@ -13,7 +13,6 @@ class Register extends Component {
       confirmPassword: "",
       showPassword: false,
       showPasswordConfrim: false,
-      errMessage: "",
     };
   }
   handleOnChangeInput = (event, id) => {
@@ -34,14 +33,12 @@ class Register extends Component {
   };
   handleRegister = async () => {
     let checkPassword = this.checkSimilarPassword();
+
     if (checkPassword) {
       this.props.registerUserRedux({
         email: this.state.userName,
         password: this.state.password,
       });
-      if (this.props.history) {
-        this.props.history.push("/login");
-      }
     } else {
       this.setState({
         confirmPassword: "",
@@ -71,11 +68,11 @@ class Register extends Component {
           <div className="login-content row">
             <div className="col-12 login-text">Register</div>
             <div className="col-12 form-group login-input">
-              <label htmlFor="">Username</label>
+              <label htmlFor="">Email</label>
               <input
                 type="text"
                 className="form-control"
-                placeholder="Enter your username"
+                placeholder="Enter your email"
                 value={this.state.username}
                 onChange={(event) =>
                   this.handleOnChangeInput(event, "userName")
@@ -127,9 +124,6 @@ class Register extends Component {
                   ></i>
                 </span>
               </div>
-            </div>
-            <div className="col-12" style={{ color: "red" }}>
-              {this.state.errMessage}
             </div>
             <div className="col-12">
               <button

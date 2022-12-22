@@ -1,160 +1,161 @@
- //reset slick slider css
- .slick-prev {
-     left: -20px !important;
-     z-index: 100;
-     height: 48px !important;
-     width: 44px !important;
-     border: 2px solid #d7d7d7 !important;
-     background: #fff !important;
-     &:hover {
-         background: #d7d7d7 !important;
-     }
- }
- 
- .slick-prev:before {
-     // content: "\f060" !important;
-     font-family: FontAwesome !important;
-     color: red !important;
- }
- 
- .slick-next {
-     right: -10px !important;
-     top: 50% !important;
-     height: 48px !important;
-     width: 44px !important;
-     border: 2px solid #d7d7d7 !important;
-     background: #fff !important;
-     &:hover {
-         background: #d7d7d7 !important;
-     }
- }
- 
- .slick-next:before {
-     // content: "\e258" !important;
-     font-family: FontAwesome !important;
-     color: red !important;
- }
- 
- .section-share {
-     font-family: 'Courier New', Courier, monospace;
-     &.section-products {
-         background-color: #f5f5f5;
-     }
-     &.section-about {
-         height: 500px !important;
-         border-top: 1px solid #f5f5f5;
-         border-bottom: 1px solid #f5f5f5;
-     }
-     .section-body {
-         .section-customize {
-             position: relative;
-             .bg-image {
-                 background-position: center center;
-                 background-repeat: no-repeat;
-                 background-size: cover;
-                 background-color: #eee;
-                 width: 320px;
-                 height: 300px;
-                 cursor: pointer;
-                 &.bg-translucent {
-                     opacity: 0.5;
-                 }
-                 &.border-outstanding {
-                     border: 10px solid black;
-                     resize: both;
-                     border-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cstyle%3Epath%7Banimation:stroke 5s infinite linear%3B%7D%40keyframes stroke%7Bto%7Bstroke-dashoffset:776%3B%7D%7D%3C/style%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%232d3561' /%3E%3Cstop offset='25%25' stop-color='%23c05c7e' /%3E%3Cstop offset='50%25' stop-color='%23f3826f' /%3E%3Cstop offset='100%25' stop-color='%23ffb961' /%3E%3C/linearGradient%3E %3Cpath d='M1.5 1.5 l97 0l0 97l-97 0 l0 -97' stroke-linecap='square' stroke='url(%23g)' stroke-width='3' stroke-dasharray='388'/%3E %3C/svg%3E") 1;
-                 }
-             }
-             .content-bg {
-                 display: flex;
-                 font-size: 15px;
-                 font-family: 'Courier New', Courier, monospace;
-                 // width: 320px;
-                 justify-content: space-around;
-                 margin-top: 5px;
-                 font-weight: 600;
-                 width: 320px;
-                 .title-image {
-                     cursor: pointer;
-                     text-transform: uppercase;
-                     &:hover {
-                         color: rgb(100, 8, 81);
-                     }
-                     &.title-out-of-stock {
-                         color: red;
-                         text-decoration: line-through;
-                     }
-                 }
-             }
-         }
-     }
- }
- 
- .section-share {
-     height: 450px;
-     .section-container {
-         margin: 0 100px;
-         display: flex;
-         flex-direction: column;
-         .section-header {
-             height: 60px;
-             margin-bottom: 20px;
-             padding-top: 30px;
-             .title-section {
-                 font-size: 20px;
-                 font-weight: 600;
-             }
-             .btn-section {
-                 float: right;
-                 padding: 10px 15px;
-                 border: none;
-                 outline: none;
-                 display: block;
-                 background: #ebebeb;
-                 color: black;
-                 cursor: pointer;
-                 text-transform: uppercase;
-                 &:hover {
-                     color: #777;
-                     background: #f7d800;
-                 }
-             }
-         }
-     }
- }
- 
- // Home footer
- .home-footer {
-     text-align: center;
-     padding-top: 8px;
-     a {
-         text-decoration: none;
-     }
- }
- 
- // About 
- .section-about {
-     padding: 0 125px;
-     .section-about-header {
-         padding: 20px 10px;
-         font-size: 20px;
-         font-weight: 600;
-     }
-     .section-about-content {
-         display: flex;
-         gap: 50px;
-         width: 100%;
-         .content-left {
-             width: 60%;
-         }
-         .content-right {
-             width: 40%;
-             display: flex;
-             justify-content: center;
-             align-items: center;
-             font-size: 16px;
-             font-style: italic;
-             color: #565656;
-         }
-     }
- }
+//reset slick slider css
+.slick-prev {
+  left: -20px !important;
+  z-index: 100;
+  height: 48px !important;
+  width: 44px !important;
+  border: 2px solid #d7d7d7 !important;
+  background: #fff !important;
+  &:hover {
+    background: #d7d7d7 !important;
+  }
+}
+
+.slick-prev:before {
+  // content: "\f060" !important;
+  font-family: FontAwesome !important;
+  color: red !important;
+}
+
+.slick-next {
+  right: -10px !important;
+  top: 50% !important;
+  height: 48px !important;
+  width: 43px !important;
+  border: 2px solid #d7d7d7 !important;
+  background: #fff !important;
+  &:hover {
+    background: #d7d7d7 !important;
+  }
+}
+
+.slick-next:before {
+  // content: "\e258" !important;
+  font-family: FontAwesome !important;
+  color: red !important;
+}
+
+.section-share {
+  font-family: 'Courier New', Courier, monospace;
+  &.section-products {
+    background-color: #f5f5f5;
+  }
+  &.section-about {
+    height: 500px !important;
+    border-top: 1px solid #f5f5f5;
+    border-bottom: 1px solid #f5f5f5;
+  }
+  .section-body {
+    .section-customize {
+      position: relative;
+      .bg-image {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: #eee;
+        width: 320px;
+        height: 300px;
+        cursor: pointer;
+        &.bg-translucent {
+          opacity: 0.5;
+        }
+        &.border-outstanding {
+          border: 10px solid black;
+          resize: both;
+          border-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cstyle%3Epath%7Banimation:stroke 5s infinite linear%3B%7D%40keyframes stroke%7Bto%7Bstroke-dashoffset:776%3B%7D%7D%3C/style%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%232d3561' /%3E%3Cstop offset='25%25' stop-color='%23c05c7e' /%3E%3Cstop offset='50%25' stop-color='%23f3826f' /%3E%3Cstop offset='100%25' stop-color='%23ffb961' /%3E%3C/linearGradient%3E %3Cpath d='M1.5 1.5 l97 0l0 97l-97 0 l0 -97' stroke-linecap='square' stroke='url(%23g)' stroke-width='3' stroke-dasharray='388'/%3E %3C/svg%3E")
+            1;
+        }
+      }
+      .content-bg {
+        display: flex;
+        font-size: 15px;
+        font-family: 'Courier New', Courier, monospace;
+        // width: 320px;
+        justify-content: space-around;
+        margin-top: 5px;
+        font-weight: 600;
+        width: 320px;
+        .title-image {
+          cursor: pointer;
+          text-transform: uppercase;
+          &:hover {
+            color: rgb(100, 8, 81);
+          }
+          &.title-out-of-stock {
+            color: red;
+            text-decoration: line-through;
+          }
+        }
+      }
+    }
+  }
+}
+
+.section-share {
+  height: 450px;
+  .section-container {
+    margin: 0 100px;
+    display: flex;
+    flex-direction: column;
+    .section-header {
+      height: 61px;
+      margin-bottom: 20px;
+      padding-top: 30px;
+      .title-section {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .btn-section {
+        float: right;
+        padding: 10px 15px;
+        border: none;
+        outline: none;
+        display: block;
+        background: #ebebeb;
+        color: black;
+        cursor: pointer;
+        text-transform: uppercase;
+        &:hover {
+          color: #777;
+          background: #f7d800;
+        }
+      }
+    }
+  }
+}
+
+// Home footer
+.home-footer {
+  text-align: center;
+  padding-top: 8px;
+  a {
+    text-decoration: none;
+  }
+}
+
+// About
+.section-about {
+  padding: 0 125px;
+  .section-about-header {
+    padding: 20px 10px;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .section-about-content {
+    display: flex;
+    gap: 50px;
+    width: 100%;
+    .content-left {
+      width: 60%;
+    }
+    .content-right {
+      width: 40%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 16px;
+      font-style: italic;
+      color: #565656;
+    }
+  }
+}

@@ -146,10 +146,10 @@ class HomeHeader extends Component {
               </div>
             </div>
             <div className="right-content">
-              <div className="support" onClick={() => this.hanldeSupport()}>
+              <a href="https://www.facebook.com/profile.php?id=100008388460982" className="support" target="_blank" rel="noreferrer">
                 <i className="fas fa-question-circle"></i>
                 <FormattedMessage id="home-header.support" />
-              </div>
+              </a>
               {isLoggedIn && userInfo ? (
                 <>
                   <div

@@ -221,7 +221,8 @@
                         justify-content: space-around;
                         font-weight: 600;
                         width: 300px;
-                        .title-image {
+                        margin-top: 5px;
+                        .title-image { 
                             cursor: pointer;
                             text-transform: uppercase;
                             &:hover {

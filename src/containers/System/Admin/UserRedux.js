@@ -139,7 +139,7 @@ class UserRedux extends Component {
     image = `${ROOT.ROOT}/api/Image/GetAvatar/${user.UserID}`;
 
     this.setState({
-      email: "example@gmail.com",
+      email: user.Email,
       password: "123456789",
       phoneNumber: user.PhoneNumber,
       citizenID: user.CitizenID,
